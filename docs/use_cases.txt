@@ -1,0 +1,18 @@
+Yahtzee Use Cases
+
+1. Starting a game
+    The yahtzee scorecard is set with all options unselected
+    and all scores at 0. The dice are all reset to 1 and the roll
+    count is reset.
+
+2. Playing a game
+    The player rolls the dice. The player selects the dice that he
+    wants to keep. If he wants to score the dice, he selects the
+    category to score, and the corresponding score is calculated
+    and displayed. This process is repeated twice more, and after
+    the third roll, the player must score the roll.
+
+3. Ending a game
+    Once all scoring categories have been filled, the final score
+    of the game is displayed. If the player has achieved a new
+    high score, he will be prompted for his name.
