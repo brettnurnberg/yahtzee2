@@ -42,6 +42,7 @@ namespace yahtzee
             this.BackColor = Color.FromName("SeaGreen");
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.Icon = new Icon("res/die_3d.ico");
 
             score = new Button();
             score.Size = dims.score_btn.size;

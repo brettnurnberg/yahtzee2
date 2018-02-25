@@ -15,6 +15,7 @@ namespace yahtzee
         public int upper_total { get; set; }
         public int total { get; set; }
         public int bonus { get; set; }
+        public bool is_game_over { get; set; }
 
         public game_data()
         {
@@ -48,6 +49,7 @@ namespace yahtzee
             bonus = 0;
             total = 0;
             roll_nmbr = 0;
+            is_game_over = false;
         }
 
         public void roll_dice()

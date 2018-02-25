@@ -26,19 +26,38 @@ namespace yahtzee
 
         public void score_roll(Object sender, EventArgs e)
         {
+            /* get and verify the selected category */
             int cat = get_sel_cat();
             if(cat == -1)
             {
                 return;
             }
+
+            /* score the roll */
             data.scores[cat].value = calc_score(cat);
             data.scores[cat].used = true;
+
+            /* unlock all dice */
             foreach(die d in data.dice)
             {
                 d.locked = false;
             }
+
+            /* calculate total scores */
             data.calculate_totals();
             data.roll_nmbr = 0;
+
+            /* determine if game is over */
+            data.is_game_over = true;
+            foreach(score s in data.scores)
+            {
+                if(!s.used)
+                {
+                    data.is_game_over = false;
+                }
+            }
+
+            /* update gui */
             update();
         }
 
@@ -71,18 +90,29 @@ namespace yahtzee
             int score = 0;
             int dice_total = 0;
 
+            /* count number of each die value */
             for(int i = 0; i < 7; i++)
             {
                 num[i] = 0;
             }
-
             foreach(die d in data.dice)
             {
                 num[d.value]++;
                 dice_total += d.value;
             }
 
-            switch(cat)
+            /* score extra yahtzees */
+            if (data.scores[(int)score_cat.YAHTZEE].used && data.scores[(int)score_cat.YAHTZEE].value != 0)
+                for (int i = 1; i < 7; i++)
+                {
+                    if (num[i] == 5)
+                    {
+                        data.scores[(int)score_cat.YAHTZEE].value += 100;
+                    }
+                }
+
+            /* score the correct category */
+            switch (cat)
             {
                 case (int)score_cat.ACES:
                 case (int)score_cat.TWOS:

@@ -47,7 +47,7 @@ namespace yahtzee
                 score.Enabled = true;
             }
 
-            if(data.roll_nmbr == 3)
+            if(data.roll_nmbr == 3 || data.is_game_over)
             {
                 roll.Enabled = false;
             }
@@ -151,7 +151,10 @@ namespace yahtzee
             CheckBox b = (CheckBox)sender;
             uncheck_boxes();
             int idx = score_sels.FindIndex(u => u == b);
-            score_sels[idx].Checked = true;
+            if(data.roll_nmbr != 0)
+            {
+                score_sels[idx].Checked = true;
+            }
         }
 
         private void on_die_click(Object sender, EventArgs e)
