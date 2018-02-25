@@ -45,11 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="control_dimension.cs" />
+    <Compile Include="die.cs" />
+    <Compile Include="game_controller.cs" />
+    <Compile Include="game_data.cs" />
+    <Compile Include="gui_dimensions.cs" />
+    <Compile Include="score.cs" />
+    <Compile Include="score_cat.cs" />
+    <Compile Include="yahtzee_gui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="yahtzee_gui.Designer.cs">
+      <DependentUpon>yahtzee_gui.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

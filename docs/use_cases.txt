@@ -16,3 +16,91 @@ Yahtzee Use Cases
     Once all scoring categories have been filled, the final score
     of the game is displayed. If the player has achieved a new
     high score, he will be prompted for his name.
+    
+    
+    
+We can have a list of dice, and a score card object. The score card
+can contain the list of score labels and score selections. They
+could possibly be combined into a single "game" object.
+
+A handle to the yahtzee game controller init function could be passed
+to the form. The handles to the controls would be given to the game
+controller using this function.
+
+When would the controls be initialized? What would be a good way to
+do this?
+We could maybe make a list of the controls and initialize them in
+a foreach loop.
+
+Using MVC architecture
+
+Model:
+    Dice
+    Roll Number
+    List of scores (including if they're used or not)
+
+View:
+    UI with all the controls
+    
+Controller:
+    Yahtzee controller. It will contain all of the event handlers.
+    It will need to be able to get the held dice.
+    It will need to be able to get the checked score box.
+    It will need to be able to get the selected button.
+        Actually, it will have separate event handlers for each button.
+
+
+
+
+Class GameController
+    Event handlers for either button press
+        scoreRoll()
+        rollDice()
+    Event handler for starting a new game
+    Event handler for viewing high scores
+
+
+Class Die
+    Boolean for whether the die is locked or not
+    Die value
+    
+    rollDie()
+
+
+
+The model of the game will contain the list of five dice,
+the current roll number, and a list of upper and lower scores.
+The list of scores will also need to contain a boolean value
+for whether or not the score has been used.
+
+The model will be held by the game controller and the view.
+The view will never change values of the model, only read them.
+The game controller will edit the values upon one of the two events.
+
+Somehow, upon pressing the score button, the game controller must
+be able to get the selected score category.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
