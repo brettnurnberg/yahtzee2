@@ -18,6 +18,7 @@ namespace yahtzee
         public List<control_dimension> score_sels;
         public List<control_dimension> score_vals;
         public List<control_dimension> score_totals;
+        public control_dimension menu;
 
         public gui_dimensions(int width, int height)
         {
@@ -30,10 +31,14 @@ namespace yahtzee
             score_sels = new List<control_dimension>();
             score_vals = new List<control_dimension>();
             score_totals = new List<control_dimension>();
+            menu = new control_dimension();
+
+            menu.point = new Point(0, 0);
+            menu.size = new Size(width, 24);
 
             window.size = new Size(width, height);
             score_card.size = new Size(265, 554);
-            score_card.point = new Point(12, (window.size.Height - score_card.size.Height) / 2);
+            score_card.point = new Point(12, (window.size.Height - score_card.size.Height - menu.size.Height) / 2 + menu.size.Height);
 
             score_btn.size = new Size(60, 30);
             roll_btn.size = new Size(60, 30);
@@ -98,7 +103,6 @@ namespace yahtzee
             score_totals[3].point = new Point(score_card.point.X + 209, score_card.point.Y + 476);
             score_totals[4].point = new Point(score_card.point.X + 209, score_card.point.Y + 501);
             score_totals[5].point = new Point(score_card.point.X + 209, score_card.point.Y + 525);
-
         }
 
     }

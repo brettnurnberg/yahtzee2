@@ -14,12 +14,14 @@ namespace yahtzee
     {
         private InputHandler score_roll;
         private InputHandler roll_dice;
+        private InputHandler new_game;
         private game_data data;
 
-        public yahtzee_gui(InputHandler roll_dice_, InputHandler score_roll_, game_data data_)
+        public yahtzee_gui(InputHandler roll_dice_, InputHandler score_roll_, InputHandler new_game_, game_data data_)
         {
             roll_dice = roll_dice_;
             score_roll = score_roll_;
+            new_game = new_game_;
             data = data_;
 
             InitializeComponent();
@@ -170,5 +172,11 @@ namespace yahtzee
                 p.ImageLocation = String.Format("res/{0}_pip_sel.png", data.dice[idx].value);
             }
         }
+
+        private void exit_game(Object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

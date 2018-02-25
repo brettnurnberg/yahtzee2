@@ -19,6 +19,10 @@ namespace yahtzee
         private List<CheckBox> score_sels;
         private List<Label> score_vals;
         private List<Label> score_totals;
+        private MenuStrip menu;
+        private ToolStripMenuItem file_menu;
+        private ToolStripMenuItem new_game_item;
+        private ToolStripMenuItem exit_item;
 
         private System.ComponentModel.IContainer components = null;
 
@@ -43,6 +47,27 @@ namespace yahtzee
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Icon = new Icon("res/die_3d.ico");
+
+            new_game_item = new ToolStripMenuItem();
+            new_game_item.Text = "New Game";
+            new_game_item.Click += new EventHandler(new_game);
+
+            exit_item = new ToolStripMenuItem();
+            exit_item.Text = "Exit";
+            exit_item.Click += new EventHandler(exit_game);
+
+            file_menu = new ToolStripMenuItem();
+            file_menu.Text = "File";
+            file_menu.DropDownItems.Add(new_game_item);
+            file_menu.DropDownItems.Add(exit_item);
+
+            menu = new MenuStrip();
+            menu.Location = dims.menu.point;
+            menu.Size = dims.menu.size;
+            menu.Items.Add(file_menu);
+            this.Controls.Add(menu);
+
+            this.MainMenuStrip = menu;
 
             score = new Button();
             score.Size = dims.score_btn.size;

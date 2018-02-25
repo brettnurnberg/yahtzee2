@@ -18,7 +18,7 @@ namespace yahtzee
             data = d;
         }
 
-        public void new_game()
+        public void new_game(Object sender, EventArgs e)
         {
             data.reset();
             update();
