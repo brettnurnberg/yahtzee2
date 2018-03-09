@@ -10,7 +10,7 @@ namespace yahtzee
 {
     partial class yahtzee_gui
     {
-        private gui_dimensions dims;
+        private yahtzee_gui_dims dims;
         private Button score;
         private Button roll;
         private List<PictureBox> dice;
@@ -37,7 +37,7 @@ namespace yahtzee
 
         private void InitializeComponent()
         {
-            dims = new gui_dimensions(500, 600);
+            dims = new yahtzee_gui_dims(500, 600);
 
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

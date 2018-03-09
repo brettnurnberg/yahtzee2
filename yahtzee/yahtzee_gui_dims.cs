@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace yahtzee
 {
-    class gui_dimensions
+    class yahtzee_gui_dims
     {
         public control_dimension window;
         public control_dimension score_card;
@@ -20,7 +20,7 @@ namespace yahtzee
         public List<control_dimension> score_totals;
         public control_dimension menu;
 
-        public gui_dimensions(int width, int height)
+        public yahtzee_gui_dims(int width, int height)
         {
             window = new control_dimension();
             score_card = new control_dimension();

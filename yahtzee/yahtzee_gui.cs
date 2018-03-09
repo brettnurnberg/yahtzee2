@@ -27,6 +27,12 @@ namespace yahtzee
             InitializeComponent();
         }
 
+        public void run()
+        {
+            new_game(null, null);
+            Application.Run(this);
+        }
+
         public void update()
         {
             /* update roll number */

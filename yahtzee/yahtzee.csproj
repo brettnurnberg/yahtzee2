@@ -47,9 +47,22 @@
   <ItemGroup>
     <Compile Include="control_dimension.cs" />
     <Compile Include="die.cs" />
+    <Compile Include="end_game_gui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="enter_hs_gui.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="game_controller.cs" />
     <Compile Include="game_data.cs" />
-    <Compile Include="gui_dimensions.cs" />
+    <Compile Include="hs_controller.cs" />
+    <Compile Include="hs_data.cs" />
+    <Compile Include="hs_entry.cs" />
+    <Compile Include="hs_gui_dims.cs" />
+    <Compile Include="yahtzee_gui_dims.cs" />
+    <Compile Include="hs_gui.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="score.cs" />
     <Compile Include="score_cat.cs" />
     <Compile Include="yahtzee_gui.cs">

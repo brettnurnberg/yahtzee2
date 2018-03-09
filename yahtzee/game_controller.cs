@@ -10,8 +10,26 @@ namespace yahtzee
     {
         private IntGetter get_sel_cat;
         private BoolListGetter get_locked_dice;
+        private IntBool is_high_score;
+        private IntSetter run_end_game;
+        private IntSetter run_hs_entry;
         private Updater update;
         private game_data data;
+
+        public void register_end_game(IntSetter run_end_game_)
+        {
+            run_end_game = run_end_game_;
+        }
+
+        public void register_hs_getter(IntBool is_high_score_)
+        {
+            is_high_score = is_high_score_;
+        }
+
+        public void register_hs_entry(IntSetter run_hs_entry_)
+        {
+            run_hs_entry = run_hs_entry_;
+        }
 
         public game_controller(game_data d)
         {
@@ -47,6 +65,9 @@ namespace yahtzee
             data.calculate_totals();
             data.roll_nmbr = 0;
 
+            /* update gui */
+            update();
+
             /* determine if game is over */
             data.is_game_over = true;
             foreach(score s in data.scores)
@@ -56,9 +77,17 @@ namespace yahtzee
                     data.is_game_over = false;
                 }
             }
-
-            /* update gui */
-            update();
+            if(data.is_game_over)
+            {
+                if(is_high_score(data.total))
+                {
+                    run_hs_entry(data.total);
+                }
+                else
+                {
+                    run_end_game(data.total);
+                }
+            }
         }
 
         public void roll_dice(Object sender, EventArgs e)
