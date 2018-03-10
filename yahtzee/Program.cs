@@ -38,6 +38,7 @@ namespace yahtzee
 
             /* create views */
             yahtzee_gui gui = new yahtzee_gui(c.roll_dice, c.score_roll, c.new_game, gd);
+            hs_list_gui hs_gui = new hs_list_gui(gui, hsd);
             enter_hs_gui entry_gui = new enter_hs_gui(hsd, hsc.add_entry, gui);
             end_game_gui end_gui = new end_game_gui(gui);
 
@@ -53,6 +54,7 @@ namespace yahtzee
             c.register_end_game(end_gui.run);
             c.register_hs_getter(hsc.is_high_score);
             c.register_hs_entry(entry_gui.run);
+            gui.register_hs_list(hs_gui.run);
 
             /* run application */
             gui.run();

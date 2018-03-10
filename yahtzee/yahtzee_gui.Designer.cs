@@ -22,6 +22,7 @@ namespace yahtzee
         private MenuStrip menu;
         private ToolStripMenuItem file_menu;
         private ToolStripMenuItem new_game_item;
+        private ToolStripMenuItem hs_list_item;
         private ToolStripMenuItem exit_item;
 
         private System.ComponentModel.IContainer components = null;
@@ -52,6 +53,10 @@ namespace yahtzee
             new_game_item.Text = "New Game";
             new_game_item.Click += new EventHandler(new_game);
 
+            hs_list_item = new ToolStripMenuItem();
+            hs_list_item.Text = "High Scores";
+            hs_list_item.Click += new EventHandler(show_hs_handler);
+
             exit_item = new ToolStripMenuItem();
             exit_item.Text = "Exit";
             exit_item.Click += new EventHandler(exit_game);
@@ -59,6 +64,7 @@ namespace yahtzee
             file_menu = new ToolStripMenuItem();
             file_menu.Text = "File";
             file_menu.DropDownItems.Add(new_game_item);
+            file_menu.DropDownItems.Add(hs_list_item);
             file_menu.DropDownItems.Add(exit_item);
 
             menu = new MenuStrip();

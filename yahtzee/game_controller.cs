@@ -15,33 +15,21 @@ namespace yahtzee
         private IntSetter run_hs_entry;
         private Updater update;
         private game_data data;
-
-        public void register_end_game(IntSetter run_end_game_)
-        {
-            run_end_game = run_end_game_;
-        }
-
-        public void register_hs_getter(IntBool is_high_score_)
-        {
-            is_high_score = is_high_score_;
-        }
-
-        public void register_hs_entry(IntSetter run_hs_entry_)
-        {
-            run_hs_entry = run_hs_entry_;
-        }
-
+        
+        /* Constructor. Must pass yahtzee game data. */
         public game_controller(game_data d)
         {
             data = d;
         }
 
+        /* New game event handler */
         public void new_game(Object sender, EventArgs e)
         {
             data.reset();
             update();
         }
 
+        /* Score roll event handler */
         public void score_roll(Object sender, EventArgs e)
         {
             /* get and verify the selected category */
@@ -90,6 +78,7 @@ namespace yahtzee
             }
         }
 
+        /* Roll all unlocked dice */
         public void roll_dice(Object sender, EventArgs e)
         {
             data.set_locks(get_locked_dice());
@@ -97,6 +86,7 @@ namespace yahtzee
             update();
         }
 
+        /* Register delegate functions */
         public void register_sel_cat_getter(IntGetter del)
         {
             get_sel_cat = del;
@@ -112,6 +102,22 @@ namespace yahtzee
             update = del;
         }
 
+        public void register_end_game(IntSetter run_end_game_)
+        {
+            run_end_game = run_end_game_;
+        }
+
+        public void register_hs_getter(IntBool is_high_score_)
+        {
+            is_high_score = is_high_score_;
+        }
+
+        public void register_hs_entry(IntSetter run_hs_entry_)
+        {
+            run_hs_entry = run_hs_entry_;
+        }
+
+        /* Calculate score for given category */
         private int calc_score(int cat)
         {
             int[] num = new int[7];

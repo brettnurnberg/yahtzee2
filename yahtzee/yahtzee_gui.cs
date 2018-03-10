@@ -15,6 +15,7 @@ namespace yahtzee
         private InputHandler score_roll;
         private InputHandler roll_dice;
         private InputHandler new_game;
+        private Updater show_hs;
         private game_data data;
 
         public yahtzee_gui(InputHandler roll_dice_, InputHandler score_roll_, InputHandler new_game_, game_data data_)
@@ -31,6 +32,16 @@ namespace yahtzee
         {
             new_game(null, null);
             Application.Run(this);
+        }
+
+        public void register_hs_list(Updater show_hs_)
+        {
+            show_hs = show_hs_;
+        }
+
+        private void show_hs_handler(Object sender, EventArgs e)
+        {
+            show_hs();
         }
 
         public void update()
