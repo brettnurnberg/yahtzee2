@@ -58,14 +58,10 @@
     <Compile Include="hs_controller.cs" />
     <Compile Include="hs_data.cs" />
     <Compile Include="hs_entry.cs" />
-    <Compile Include="hs_gui_dims.cs" />
     <Compile Include="hs_list_gui.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="yahtzee_gui_dims.cs" />
-    <Compile Include="hs_gui.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="score.cs" />
     <Compile Include="score_cat.cs" />
     <Compile Include="yahtzee_gui.cs">

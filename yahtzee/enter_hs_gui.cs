@@ -74,8 +74,8 @@ namespace yahtzee
 
             prompt = new Label();
             prompt.Font = new Font(prompt.Font.FontFamily, 11);
-            prompt.Location = new Point(this.ClientSize.Width / 2 - prompt.Size.Width / 2, this.ClientSize.Height / 4 - prompt.Size.Height);
             prompt.Size = new Size(120, 30);
+            prompt.Location = new Point(this.ClientSize.Width / 2 - prompt.Size.Width / 2, this.ClientSize.Height / 4 - 3*prompt.Size.Height/4);
             prompt.Text = "New High Score!";
             prompt.TextAlign = ContentAlignment.MiddleCenter;
             this.Controls.Add(prompt);

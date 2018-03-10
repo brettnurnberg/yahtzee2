@@ -42,11 +42,6 @@ namespace yahtzee
             enter_hs_gui entry_gui = new enter_hs_gui(hsd, hsc.add_entry, gui);
             end_game_gui end_gui = new end_game_gui(gui);
 
-            /* for viewing highscores, we will simply need to create new gui
-             * with a list of 10 labels to show the scores. The gui will have a
-             * reference to the hsd and will have a handler (run) that will be
-             * given to the yahtzee gui so it can start the hs gui from the toolbar. */
-
             /* register delegates */
             c.register_sel_cat_getter(gui.get_sel_cat);
             c.register_lock_dice_getter(gui.get_lock_dice);
